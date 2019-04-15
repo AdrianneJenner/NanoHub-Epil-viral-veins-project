@@ -1,4 +1,4 @@
 #!/bin/sh
 
-/usr/bin/invoke_app "$@" -C "start_jupyter -A -T @tool NanoHub-Epil-viral-veins-project.ipynb" -t iu399sp19p100 \
+/usr/bin/invoke_app "$@" -C "start_jupyter -A -T @tool NanoHub_Epil_viral_veins_project.ipynb" -t iu399sp19p100 \
                          -u anaconda3-5.1
