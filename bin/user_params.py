@@ -225,6 +225,30 @@ class UserTab(object):
           step=0.01,
           style=style, layout=widget_layout)
 
+        param_name26 = Button(description='time_of_first_injection', disabled=True, layout=name_button_layout)
+        param_name26.style.button_color = 'tan'
+
+        self.time_of_first_injection = FloatText(
+          value=50,
+          step=1,
+          style=style, layout=widget_layout)
+
+        param_name27 = Button(description='time_of_second_injection', disabled=True, layout=name_button_layout)
+        param_name27.style.button_color = 'lightgreen'
+
+        self.time_of_second_injection = FloatText(
+          value=100,
+          step=10,
+          style=style, layout=widget_layout)
+
+        param_name28 = Button(description='time_of_third_injection', disabled=True, layout=name_button_layout)
+        param_name28.style.button_color = 'tan'
+
+        self.time_of_third_injection = FloatText(
+          value=200,
+          step=10,
+          style=style, layout=widget_layout)
+
         units_button1 = Button(description='micron', disabled=True, layout=units_button_layout) 
         units_button1.style.button_color = 'lightgreen'
         units_button2 = Button(description='', disabled=True, layout=units_button_layout) 
@@ -275,6 +299,12 @@ class UserTab(object):
         units_button24.style.button_color = 'tan'
         units_button25 = Button(description='1/min', disabled=True, layout=units_button_layout) 
         units_button25.style.button_color = 'lightgreen'
+        units_button26 = Button(description='min', disabled=True, layout=units_button_layout) 
+        units_button26.style.button_color = 'tan'
+        units_button27 = Button(description='min', disabled=True, layout=units_button_layout) 
+        units_button27.style.button_color = 'lightgreen'
+        units_button28 = Button(description='min', disabled=True, layout=units_button_layout) 
+        units_button28.style.button_color = 'tan'
 
         desc_button1 = Button(description='', disabled=True, layout=desc_button_layout) 
         desc_button1.style.button_color = 'lightgreen'
@@ -326,6 +356,12 @@ class UserTab(object):
         desc_button24.style.button_color = 'tan'
         desc_button25 = Button(description='', disabled=True, layout=desc_button_layout) 
         desc_button25.style.button_color = 'lightgreen'
+        desc_button26 = Button(description='', disabled=True, layout=desc_button_layout) 
+        desc_button26.style.button_color = 'tan'
+        desc_button27 = Button(description='', disabled=True, layout=desc_button_layout) 
+        desc_button27.style.button_color = 'lightgreen'
+        desc_button28 = Button(description='', disabled=True, layout=desc_button_layout) 
+        desc_button28.style.button_color = 'tan'
 
         row1 = [param_name1, self.tumor_radius, units_button1, desc_button1] 
         row2 = [param_name2, self.oncoprotein_mean, units_button2, desc_button2] 
@@ -352,6 +388,9 @@ class UserTab(object):
         row23 = [param_name23, self.no_of_viruses_in_initial_injection, units_button23, desc_button23] 
         row24 = [param_name24, self.virus_replication_minimum, units_button24, desc_button24] 
         row25 = [param_name25, self.secretion_rate_vein_wall_cell, units_button25, desc_button25] 
+        row26 = [param_name26, self.time_of_first_injection, units_button26, desc_button26] 
+        row27 = [param_name27, self.time_of_second_injection, units_button27, desc_button27] 
+        row28 = [param_name28, self.time_of_third_injection, units_button28, desc_button28] 
 
         box_layout = Layout(display='flex', flex_flow='row', align_items='stretch', width='100%')
         box1 = Box(children=row1, layout=box_layout)
@@ -379,6 +418,9 @@ class UserTab(object):
         box23 = Box(children=row23, layout=box_layout)
         box24 = Box(children=row24, layout=box_layout)
         box25 = Box(children=row25, layout=box_layout)
+        box26 = Box(children=row26, layout=box_layout)
+        box27 = Box(children=row27, layout=box_layout)
+        box28 = Box(children=row28, layout=box_layout)
 
         self.tab = VBox([
           box1,
@@ -406,6 +448,9 @@ class UserTab(object):
           box23,
           box24,
           box25,
+          box26,
+          box27,
+          box28,
         ])
 
     # Populate the GUI widgets with values from the XML
@@ -436,6 +481,9 @@ class UserTab(object):
         self.no_of_viruses_in_initial_injection.value = float(uep.find('.//no_of_viruses_in_initial_injection').text)
         self.virus_replication_minimum.value = float(uep.find('.//virus_replication_minimum').text)
         self.secretion_rate_vein_wall_cell.value = float(uep.find('.//secretion_rate_vein_wall_cell').text)
+        self.time_of_first_injection.value = float(uep.find('.//time_of_first_injection').text)
+        self.time_of_second_injection.value = float(uep.find('.//time_of_second_injection').text)
+        self.time_of_third_injection.value = float(uep.find('.//time_of_third_injection').text)
 
 
     # Read values from the GUI widgets to enable editing XML
@@ -466,3 +514,6 @@ class UserTab(object):
         uep.find('.//no_of_viruses_in_initial_injection').text = str(self.no_of_viruses_in_initial_injection.value)
         uep.find('.//virus_replication_minimum').text = str(self.virus_replication_minimum.value)
         uep.find('.//secretion_rate_vein_wall_cell').text = str(self.secretion_rate_vein_wall_cell.value)
+        uep.find('.//time_of_first_injection').text = str(self.time_of_first_injection.value)
+        uep.find('.//time_of_second_injection').text = str(self.time_of_second_injection.value)
+        uep.find('.//time_of_third_injection').text = str(self.time_of_third_injection.value)

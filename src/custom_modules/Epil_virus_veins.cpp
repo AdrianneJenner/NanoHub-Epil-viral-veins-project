@@ -123,13 +123,14 @@ void create_cell_types( void )
 	cell_defaults.custom_data.add_variable( "time_of_injection", "dimensionless", 0.0 );
 	
 	std::vector<double> namekk(3);
-	namekk = {0,100,200};
+	int inj1 = parameters.doubles.find_index("time_of_first_injection");
+	int inj2 = parameters.doubles.find_index("time_of_second_injection");
+	int inj3 = parameters.doubles.find_index("time_of_third_injection");
+	namekk = {parameters.doubles(inj1),parameters.doubles(inj2),parameters.doubles(inj3)};
 	std::cout<<namekk<<std::endl;
 	cell_defaults.custom_data.add_vector_variable( "time_of_injections", "dimensionless", namekk );
 	
 	// turn off secretion from these cells (oxygen and virus)
-	cell_defaults.phenotype.secretion.secretion_rates[0] = 0;
-	cell_defaults.phenotype.secretion.uptake_rates[0] = 0;
 	cell_defaults.phenotype.secretion.saturation_densities[0] = 40; 
 		
 	cell_defaults.phenotype.secretion.secretion_rates[1] = 0;

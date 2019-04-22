@@ -151,6 +151,9 @@
 		
 		<!-- for vein wall cell -->
 		<secretion_rate_vein_wall_cell type="double" units="1/min">0.1</secretion_rate_vein_wall_cell>
+		<time_of_first_injection type="double" units="min">50</time_of_first_injection>
+		<time_of_second_injection type="double" units="min">100</time_of_second_injection>
+		<time_of_third_injection type="double" units="min">200</time_of_third_injection>
 		
 	</user_parameters>
 	

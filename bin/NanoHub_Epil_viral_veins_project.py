@@ -134,7 +134,7 @@ def get_config_files():
             cachedir = os.environ['CACHEDIR']
             full_path = os.path.join(cachedir, "NanoHub_Epil_viral_veins_project")
         except:
-            #print("Exception in get_config_files")
+            print("Exception in get_config_files")
             return cf
 
     # Put all those cached (full) dirs into a list
